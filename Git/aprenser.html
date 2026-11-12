@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bruno Alves">
+    <title>Aprenser</title>
+    <style>
+        /* Fonte */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* Variavel */
+
+        :root {
+            --corPretoOfuscado: #2A2A2A;
+            --corAmarelaDestaque: #FFD000;
+            --corAzulClaro: #003463;
+            --corCinzaOpaco: #ccccccaa;
+        }
+
+        /* Reset */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Base */
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        /* Layout */
+
+        /* Largura maxima tela */
+
+        .container {
+            width: 80%;
+            max-width: 100rem;
+            margin: auto;
+        }
+
+
+        /* Evitar margin-collapse */
+
+        .cabecalho,
+        .conteudo_apresentacao,
+        .conteudo_cursos,
+        .conteudo_contato,
+        .conteudo_escola,
+        .rodape {
+            overflow: hidden;
+        }
+
+        a.btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: .5em;
+            border-radius: .5em;
+            background-color: var(--corAmarelaDestaque);
+            color: black;
+            outline: 2px solid;
+
+            &:is(:hover, :focus) {
+                outline-color: white;
+            }
+        }
+
+        /* Cabeçalho */
+
+        .cabecalho {
+            background-color: var(--corPretoOfuscado);
+            color: var(--corAmarelaDestaque);
+            text-align: center;
+            display: flex;
+        }
+
+        .cabecalho_content {
+            flex: 1;
+            padding: 1em 0;
+
+            ul {
+                padding: 0;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+
+                a {
+                    display: block;
+                    color: inherit;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        /* Apresentação principal */
+
+        .conteudo_apresentacao {
+            background-image: linear-gradient(var(--corAmarelaDestaque), white);
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            h1 {
+                width: 25rem;
+            }
+
+            span {
+                text-transform: uppercase;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        /* Cursos */
+
+        .conteudo_cursos {
+            text-align: center;
+            background-color: var(--corCinzaOpaco);
+
+            a {
+                margin: 2em 0;
+            }
+        }
+
+        .conteudo_cursos-list {
+            text-align: initial;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            div {
+                border: 2px solid #ccc;
+                border-top-color: transparent;
+                border-radius: 0 0 .5em .5em;
+                padding: 1em;
+
+                h3 {
+                    margin: 0 0 1em;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+            }
+        }
+
+        /* Biografia sobre a escola */
+
+        .conteudo_escola {
+            background-color: var(--corAzulClaro);
+            color: white;
+            padding: 2em 0;
+
+            h2 {
+                text-align: left;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            p {
+                line-height: 1.5;
+                margin: 0;
+            }
+        }
+
+        /* Contatos */
+
+        .conteudo_contato {
+            background-color: var(--corCinzaOpaco);
+            padding-bottom: 2em;
+
+            address {
+                text-align: end;
+            }
+        }
+
+        /* Rodape / Palavras finais */
+
+        .rodape {
+            background-color: var(--corPretoOfuscado);
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        /* Layout para dimensões de telas diferentes */
+
+        /* Layout acima de 700px de largura */
+        @media screen and (43.75em < width) {
+            .cabecalho_content>div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cabecalho_content ul {
+                flex-direction: row;
+            }
+
+            .conteudo_apresentacao>div {
+                flex-direction: row;
+            }
+
+            .conteudo_cursos-list {
+                flex-flow: row wrap;
+            }
+
+            .conteudo_cursos-list li {
+                flex: 1 1 30%;
+                display: flex;
+                flex-direction: column;
+
+                div {
+                    flex: 1;
+                }
+            }
+
+            .conteudo_escola {
+                >div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 5rem;
+
+                    >div {
+                        flex: 1 1 50%;
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+
+<body id="inicio">
+    <header class="cabecalho">
+        <div class="cabecalho_content">
+            <div class="container">
+                <div>
+                    <img src="Imagem/logoAprenser.png" alt="Logo Aprenser">
+                </div>
+                <nav aria-label="Navegação principal">
+                    <ul>
+                        <li><a class="btn" href="#inicio">Inicio</a></li>
+                        <li><a class="btn" href="#cursos">Cursos</a></li>
+                        <li><a class="btn" href="#nossaescola">Nossa Escola</a></li>
+                        <li><a class="btn" href="#contatos">Contatos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="conteudo">
+        <section class="conteudo_apresentacao" aria-label="Apresentação da página">
+            <div class="container">
+                <div>
+                    <h1>O saber é o que transforma nosso <span>ser</span></h1>
+                    <a href="#" class="btn">Saiba mais</a>
+                </div>
+                <div>
+                    <img src="Imagem/HeroImage.png" alt="Mulher cheirando flores">
+                </div>
+            </div>
+        </section>
+        <section id="cursos" class="conteudo_cursos" aria-labelledby="curso">
+            <div class="container">
+                <h2 id="curso">Principais Cursos</h2>
+                <ul class="conteudo_cursos-list">
+                    <li>
+                        <img src="Imagem/curso-design.png" alt="Pessoa colando post-it">
+                        <div>
+                            <h3>Design para web</h3>
+                            <p>O curso Design para Web é perfeito par aqueles que desejam aprender a criar designs
+                                atraentes e funcionais para sites e aplicativos móveis.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="Imagem/curso-design-1.png" alt="Código de computador">
+                        <div>
+                            <h3>Front End Developer</h3>
+                            <p>Aprenda HTML, CSS e JavaScript e crie interfaces ricas e semânticas para páginas web,
+                                aplicativos on-line ou até mesmo aplicações para aparelhos celulares.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="Imagem/curso-design-2.png" alt="Código de computador">
+                        <div>
+                            <h3>Back End Developer</h3>
+                            <p>Com este curso você vai dominar uma linguagem back-end a sua escolha, um sistema de banco
+                                de dados e aprender como funciona o protocolo HTTP na web.</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="#" class="btn">Ver mais cursos</a>
+            </div>
+        </section>
+        <section id="nossaescola" class="conteudo_escola" aria-labelledby="escola">
+            <div class="container">
+                <div>
+                    <img src="Imagem/nossa-escola.png" alt="Mulher mechendo no computador">
+                </div>
+                <div>
+                    <h2 id="escola">Nossa escola</h3>
+                        <p>Aprenda habilidades tecnológicas em demanda e alcance seus objetivos de carreira com a nossa
+                            escola de tecnologia online. Oferecemos uma ampla gama de cursos online, desde programação e
+                            desenvolvimento de software até design gráficos e análise de dados. Nossos instrutores
+                            experientes fornecerão a você um ambiente de aprendizado interativo e de suporte para
+                            ajudá-lo a adquirir as habilidades necessárias para ter sucesso em sua carreira. Inscreva-se
+                            agora e comece sua jornada para se tornar um profissional de tecnológia bem-sucedido.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contatos" class="conteudo_contato" aria-labelledby="ctt">
+            <div class="container">
+                <h2 id="ctt">Contatos</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28637.43488509598!2d-49.834256849999996!3d-26.207106749999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ddedb4884dc6e5%3A0x8a4d71c0c8d2e5b9!2zUmFpemVzIERhIFRyYWRpw6fDo28!5e0!3m2!1spt-BR!2sbr!4v1794444751425!5m2!1spt-BR!2sbr"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <address>
+                    Rua do Raizes Tradição - 98 <br>
+                    tradicao@gmail.com <br>
+                    Mafra - SC
+                </address>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>Desenvolvido por <a href="http://serfrontend.com" target="_blank">Serliv</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bruno Alves">
+    <title>Kenoji</title>
+    <style>
+        /* Fonte */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        
+        /* Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        /* Base */
+        body {
+            font: 1em "Roboto", sans-serif;
+            background-image: linear-gradient(to bottom, #FEE9A5, #FED060, #c08f14);
+            min-height: 100vh;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        /* Layout */
+
+        /* Cabecalho  */
+        .cabecalho {
+            text-align: center;
+        }
+
+        /* Conteudo geral */
+        .conteudo {
+            position: relative;
+
+            span {
+                text-transform: uppercase;
+
+                &:last-child {
+                    font-weight: bold;
+                }
+            }
+
+            h1 span {
+                color: #BA2A30;
+            }
+
+        }
+
+        /* Conteudo do formulario buscar */
+        .conteudo__form {
+            input {
+                padding: .5em;
+                background-color: transparent;
+                outline: 2px solid black;
+                border: none;
+                border-radius: .5em;
+
+                &:last-child {
+                    background-color: #031D45;
+                    color: white;
+                    margin-left: .5em;
+                }
+
+                &:focus {
+                    outline: 2px solid orangered;
+                }
+
+            }
+        }
+
+        /* Animação dos emoges */
+        @keyframes flutuar {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(var(--tx, 30px), var(--ty, -50px));
+            }
+        }
+
+        .conteudo__emoges {
+            img {
+                display: block;
+                max-width: 100%;
+            }
+
+            div {
+                animation: flutuar 3s infinite alternate;
+                z-index: -1;
+                position: absolute;
+            }
+
+            div:nth-child(1) {
+                width: 30%;
+                inset: 10% auto auto 30%;
+                --tx: 10px;
+                --ty: 50px;
+            }
+            
+            div:nth-child(2) {
+                width: 30%;
+                top: 40%;
+                inset: 40% auto auto auto;
+                --tx: 20px;
+                --ty: -30px;
+            }
+            
+            div:nth-child(3) {
+                width: 30%;
+                inset: 40% auto auto 60%;
+                --tx: -40px;
+                --ty: -80px;
+            }
+            
+            div:nth-child(4) {
+                inset: 60% auto auto 30%;
+                --tx: -40px;
+                --ty: -10px;
+            }
+            
+            div:nth-child(5) {
+                inset: 60% auto auto -15%;
+                --tx: -10px;
+                --ty: -30px;
+            }
+            
+            div:nth-child(6) {
+                inset: 10% auto auto 40%;
+                --tx: 10px;
+                --ty: 40px;
+            }
+        }
+
+        /* Tela com 700px ou mais */
+        @media screen and (width >=43.75em) {
+            .cabecalho {
+                text-align: inherit;
+            }
+            
+            .conteudo {
+                section {
+                    display: flex;
+                    article {
+                        flex: 1;
+                    }
+                }
+            }
+            
+            .conteudo__form {
+                input {
+                    padding: 1em;
+                }
+            }
+            
+            .conteudo__emoges {
+                position: relative;
+            }
+        }
+        
+        /* Tela igual ou maior a 850px */
+        @media screen and (width >= 53.125em) {
+            h1 {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div>
+            <img src="Imagem/logo.svg" alt="Logo Kenoji">
+        </div>
+    </header>
+    <main class="conteudo">
+        <section>
+            <article class="conteudo__apresentacao">
+                <h1>A sua biblioteca <br> de Emogis, <span>grátis</span> <br> e para <span>sempre</span></h1>
+                <div>
+                    <p>É só buscar e depois fazer o download.</p>
+                    <p><span>Experimente</span></p>
+                    <div class="conteudo__form">
+                        <input type="text" autofocus placeholder="Ex: Smile">
+                        <input type="submit" value="Buscar">
+                    </div>
+                </div>
+            </article>
+            <article class="conteudo__emoges">
+                <div><img src="Imagem/emoji-1.svg" alt="emoge"></div>
+                <div><img src="Imagem/emoji-2.svg" alt="emoge"></div>
+                <div><img src="Imagem/emoji-3.svg" alt="emoge"></div>
+                <div><img src="Imagem/emoji-4.svg" alt="emoge"></div>
+                <div><img src="Imagem/emoji-5.svg" alt="emoge"></div>
+                <div><img src="Imagem/emoji-6.svg" alt="emoge"></div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

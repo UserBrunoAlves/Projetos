@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bruno Alves">
+    <title>Galeria</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 0;
+        }
+
+        .titulo {
+            font-size: 4em;
+            margin-bottom: 2rem;
+        }
+
+        .caixa-galeria {
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 100rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .caixa-galeria div {
+            /* Padrão para telas grandes: 4 colunas (25% menos o espaço do gap) */
+            flex: 1 1 calc(25% - 1.5rem);
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform: scale(1);
+                transition: all .5s;
+            }
+            
+            p {
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 1rem;
+                margin: 0;
+                font-size: 1.4rem;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                transform: translateY(100%);
+                transition: all .3s;
+                text-align: center;
+                z-index: 2;
+            }
+
+            &::before {
+                content: "";
+                background-color: white;
+                opacity: .5;
+                inset: 0;
+                z-index: 1;
+                position: absolute;
+            }
+
+            &:hover::before {
+                opacity: 0;
+            }
+
+            &:hover img {
+                transform: scale(1.1); 
+            }
+            
+            &:hover p {
+                transform: translateY(0);
+            }
+        }
+
+        /* Tablets e telas médias (até 768px): 2 colunas */
+        @media screen and (max-width: 768px) {
+            .caixa-galeria div {
+                flex: 1 1 calc(50% - 1.5rem);
+            }
+        }
+
+        /* Celulares (até 480px): 1 coluna (ocupa 100%) */
+        @media screen and (max-width: 480px) {
+            .caixa-galeria div {
+                flex: 1 1 100%;
+            }
+            
+            .titulo {
+                font-size: 3rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="titulo">Galeria</h1>
+    <section class="caixa-galeria">
+        <div>
+            <img src="https://picsum.photos/500/400?random=1" alt="Foto 1">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=2" alt="Foto 2">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=3" alt="Foto 3">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=4" alt="Foto 4">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=5" alt="Foto 5">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=6" alt="Foto 6">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=7" alt="Foto 7">
+            <p>Descrição da imagem</p>
+        </div>
+        <div>
+            <img src="https://picsum.photos/500/400?random=8" alt="Foto 8">
+            <p>Descrição da imagem</p>
+        </div>
+    </section>
+</body>
+</html>
